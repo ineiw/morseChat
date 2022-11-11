@@ -1,4 +1,7 @@
-#include <iostream>
+#ifndef __MORSETRANSLATER_H__
+#define __MORSETRANSLATER_H__
+
+#include <string>
 
 using namespace std;
 
@@ -49,44 +52,4 @@ class MorseTranslater{
     string TextToMorse(string text);
 };
 
-string MorseTranslater::MorseToText(string code){
-
-  string result = "";
-  
-  for(int i=0;i<MORSE_IDX_LENGTH;i++){
-    if(codeTable[i][1] == code){
-      result = codeTable[i][0];
-      break;
-    }
-  }
-
-  return result;
-}
-
-string MorseTranslater::TextToMorse(string text){
-  
-  string result = "";
-
-  for(int i=0;i<MORSE_IDX_LENGTH;i++){
-    if(codeTable[i][0] == text){
-      result = codeTable[i][1];
-      break;
-    }
-  }
-
-  return result;
-}
-
-int main(int argc,char * argv[]){
-
-  string inputCode = string(argv[1]);
-  string inputText = string(argv[2]);
-
-  MorseTranslater morseTranslater = MorseTranslater();
-
-  string resultText = morseTranslater.MorseToText(inputCode);
-  string resultCode = morseTranslater.TextToMorse(inputText);
-
-  cout << inputCode + " : " << resultText << "\n";
-  cout << inputText + " : " << resultCode << "\n";
-}
+#endif
