@@ -2,7 +2,7 @@ void setup() {
   pinMode(13,OUTPUT);
 }
 
-// ok2
+// ok3
 void loop() {
   digitalWrite(13,HIGH);
   delay(300);
