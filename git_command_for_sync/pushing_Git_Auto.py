@@ -1,5 +1,5 @@
 import os
 
-os.popen("git add .; git commit -m 'ok'; git push origin ineiw ")
+os.system("git add .; git commit -m 'ok'; git push origin ineiw")
 
 
