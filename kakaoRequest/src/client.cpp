@@ -28,12 +28,14 @@ void err_handling(string message){
   exit(1);
 }
 
-string enter_web(string auth,string msg){
+string enter_web(){
   int sock;
 
   char site[] = "www.kapi.kakao.com";
   char pt[] = "/v2/api/talk/memo/default/send";
   char p[] = "80";
+  char auth[] = "";
+  char msg[] = "";
 
   long int res;
   struct sockaddr_in serv_addr;
@@ -41,7 +43,7 @@ string enter_web(string auth,string msg){
   struct hostent * ok = gethostbyname(site);
 
   char message[MSG_LEN];
-  string extra = "Content-Type: application/x-www-form-urlencoded\r\nAuthorization: Bearer " + auth + "\r\n\r\ntemplate_object={\"object_type\": \"text\",\"text\": \"" + msg + "\"}";
+  string extra = "Content-Type: application/x-www-form-urlencoded\r\nAuthorization: Bearer " + string(auth) + "\r\n\r\ntemplate_object={\"object_type\": \"text\",\"text\": \"" + string(msg) + "\"}";
   sock = socket(PF_INET,SOCK_STREAM,0);
 
   if(sock == -1)

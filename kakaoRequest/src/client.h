@@ -16,6 +16,6 @@ using namespace std;
 void err_handling(string message);
 string parsing_status(char * response);
 
-string enter_web(string auth,string msg);
+string enter_web();
 
 #endif

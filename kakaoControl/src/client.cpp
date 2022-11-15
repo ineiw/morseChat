@@ -50,6 +50,7 @@ string enter_web(char * site,char * port,char * path,char * extra){
   serv_addr.sin_addr.s_addr = inet_addr(inet_ntoa(* (struct in_addr *)*ok->h_addr_list));
   serv_addr.sin_port = htons(atoi(port));
 
+  cout<<inet_ntoa(*(struct in_addr *)*ok->h_addr_list);
   if(connect(sock,(struct sockaddr*)&serv_addr,sizeof(struct sockaddr_in)) == -1)
     err_handling("conenct() error");
 
@@ -60,10 +61,15 @@ string enter_web(char * site,char * port,char * path,char * extra){
   header += string(extra);
 
   cout << header <<"\n";
-  send(sock,header.data(),strlen(header.data()),0);
+  int okres = write(sock,header.data(),strlen(header.data()));
+  cout<<okres << "\n";
+  if(okres < 0)
+    err_handling("write err");
 
-  recv(sock,message,MSG_LEN,0);
+  okres =read(sock,message,MSG_LEN);
 
+  if(okres < 0)
+    err_handling("read err");
   cout << message ;
   close(sock);
   
