@@ -15,4 +15,7 @@
 - http (not ssl) api 리퀘스트 찾아보기 (메모용)
 
 - 진동모터 적용
+
+
+
 ![alt text](https://github.com/ineiw/morseChat/blob/main/KakaoTalk_20221214_161330897%20(2).gif)
